@@ -1,0 +1,22 @@
+{
+    'name': 'l10n ar account with holding padron',
+    'version': '1.0',
+    'description': 'Padron',
+    'summary': '',
+    'author': '',
+    'website': '',
+    'license': 'LGPL-3',
+    'category': '',
+    'depends': ['l10n_ar_account_withholding','account_ux'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/res_company_jurisdiction_padron_arba_per.xml',
+        'views/res_company_jurisdiction_padron_arba_ret.xml',
+        'views/res_company_jurisdiction_padron_agip.xml',
+        'views/res_partner_view.xml',
+    ],
+    'demo': [''],
+    'auto_install': False,
+    'application': False,
+    'assets': {},
+}

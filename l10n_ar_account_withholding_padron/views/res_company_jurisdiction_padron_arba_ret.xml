@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="res_company_jurisdiction_padron_arba_ret_view_tree" model="ir.ui.view">
+    <field name="name">res.company.jurisdiction.padron.ret.view.tree</field>
+    <field name="model">res.company.jurisdiction.padron.ret</field>
+    <field name="arch" type="xml">
+      <tree string="Padron Alicuotas ARBA Retenciones">
+        <field name="jurisdiction_id" />
+        <field name="company_id" />
+        <!-- <field name="l10n_ar_padron_from_date" />
+        <field name="l10n_ar_padron_to_date" /> -->
+      </tree>
+    </field>
+  </record>
+
+
+  <record model="ir.ui.view" id="view_res_company_jurisdiction_padron_arba_ret_form">
+    <field name="name">res.company.jurisdiction.padron.ret.form.inherit</field>
+    <field name="model">res.company.jurisdiction.padron.ret</field>
+    <field name="arch" type="xml">
+      <form string="Padron Alicuotas ARBA Retenciones">
+        <sheet>
+
+          <group>
+            <group>
+              <field name="company_id" />
+              <field name="file_padron" />
+            </group>
+            <group>
+              <field name="jurisdiction_id" />
+              <field name="l10n_ar_padron_from_date" required="false" invisible="true" />
+              <field name="l10n_ar_padron_to_date" required="false" invisible="true" />
+              <button type="object" name="reescribirAlicuotaARBA" string="Reescribir"
+                class="btn btn-primary" />
+            </group>
+          </group>
+          <!-- <p class="alert alert-info" role="alert" style="margin-bottom:0px;"> Padrones
+            implementados: <ul>
+              <li>ARBA: por lo general no es necesario cargarlo aquí ya que las alícuotas se
+                obtienen automáticamente mediante webservice.
+                Si igualmente desea cargarlo, debe subir el archivo zip que descarga de arba y que
+            tiene nombre de forma "PadronRGSMMAAAA.zip
+              </li>
+            </ul>
+          </p> -->
+          <notebook>
+            <page string="Contenido">
+              <field name="log_content" />
+            </page>
+            <page string="Padrones Cargados">
+              <field name="log_process" />
+            </page>
+            <page string="No Procesados">
+              <field name="log_no_process" />
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="act_company_jurisdiction_padron_arba_ret">
+    <field name="name">Padron Alicuotas ARBA Retenciones</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.company.jurisdiction.padron.ret</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem name="Padron de Alicuotas ARBA Retenciones"
+    action="act_company_jurisdiction_padron_arba_ret"
+    id="menu_action_company_jurisdiction_padron_arba_ret" sequence="100"
+    parent="l10n_ar.menu_afip_config" />
+
+</odoo>

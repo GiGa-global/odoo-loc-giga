@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_res_company_jurisdiction_padron_form_inherit_l10n_ar_account_withholding_arba"
+    model="ir.ui.view">
+    <field name="name">res.company.jurisdiction.padron.view.form.inherit</field>
+    <field name="model">res.company.jurisdiction.padron</field>
+    <field name="inherit_id"
+      ref="l10n_ar_account_withholding.view_res_company_jurisdiction_padron_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='jurisdiction_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='l10n_ar_padron_to_date']" position="after">
+        <field name="jurisdiction_id" />
+        <button type="object" name="reescribirAlicuotaARBA" string="Reescribir"
+          class="btn btn-primary" />
+      </xpath>
+      <xpath expr="//p[@class='alert alert-info']" position="after">
+        <notebook>
+          <page string="Contenido">
+            <field name="log_content" />
+          </page>
+          <page string="Padrones Cargados">
+            <field name="log_process" />
+          </page>
+          <page string="No Procesados">
+            <field name="log_no_process" />
+          </page>
+        </notebook>
+      </xpath>
+      <xpath expr="//field[@name='l10n_ar_padron_from_date']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='l10n_ar_padron_to_date']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_res_company_jurisdiction_padron_tree_inherit_l10n_ar_account_withholding_arrba"
+    model="ir.ui.view">
+    <field name="name">res.company.jurisdiction.padron.view.tree.inherit</field>
+    <field name="model">res.company.jurisdiction.padron</field>
+    <field name="inherit_id"
+      ref="l10n_ar_account_withholding.view_res_company_jurisdiction_padron_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='l10n_ar_padron_from_date']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='l10n_ar_padron_to_date']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="act_company_jurisdiction_padron">
+    <field name="name">Padron Alicuotas ARBA Percepciones</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.company.jurisdiction.padron</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem name="Padron de Alicuotas ARBA Percepciones" action="act_company_jurisdiction_padron"
+    id="menu_action_company_jurisdiction_padron" sequence="999" parent="l10n_ar.menu_afip_config" />
+
+
+</odoo>

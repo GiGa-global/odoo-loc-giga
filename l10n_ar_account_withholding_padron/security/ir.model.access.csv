@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_company_jurisdiction_padron_arba,res.company.jurisdiction.padron.arba.,model_res_company_jurisdiction_padron,,1,1,1,1
+access_res_company_jurisdiction_padron_arba_ret,res.company.jurisdiction.padron.arba.ret.,model_res_company_jurisdiction_padron_ret,,1,1,1,1
+access_res_company_jurisdiction_padron_agip,res.company.jurisdiction.padron.agip.,model_res_company_jurisdiction_padron_agip,,1,1,1,1

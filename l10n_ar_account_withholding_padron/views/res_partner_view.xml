@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_form_alicuot" model="ir.ui.view">
+        <field name="name">Update Alicuot en cliente</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='fiscal_data']//group[@name='afip']" position="before">
+                <div class="oe_button_box" name="button_box_co" style="width: auto;">
+                    <button name='update_alicuot' type="object"
+                        string="Actualizar Alicuotas"
+                        title="Actualizar Alicuotas"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_partner_arba_alicuot_form" model="ir.ui.view">
+        <field name="name">Res partner Arba Alicuot</field>
+        <field name="model">res.partner.arba_alicuot</field>
+        <field name="inherit_id"
+            ref="l10n_ar_account_withholding.view_res_partner_arba_alicuot_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="date_last_update" string="Fecha de ultima Actualización"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
